@@ -1,5 +1,7 @@
 const dataNascimento = document.querySelector('#nascimento');
 
+dataNascimento.addEventListener('blur', (evento) => validacaoDataNascimento(evento.target));
+
 function validacaoDataNascimento(input) {
     const dataRecebida = new Date(input.value);
     let mensagem = '';
