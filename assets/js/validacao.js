@@ -1,3 +1,5 @@
+const dataNascimento = document.querySelector('#nascimento');
+
 function validacaoDataNascimento(input) {
     const dataRecebida = new Date(input.value);
     let mensagem = '';
