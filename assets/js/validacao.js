@@ -15,6 +15,13 @@ export function valida(input) {
     }
 }
 
+const tiposDeErro = [
+    'valueMissing',
+    'typeMismatch',
+    'patternMismatch',
+    'customError'
+]
+
 const mensagensDeErro = {
     nome: {
         valueMissing: 'O campo nome não pode estar vazio.'
