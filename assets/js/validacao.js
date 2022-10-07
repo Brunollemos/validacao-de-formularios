@@ -7,8 +7,11 @@ export function valida(input) {
 
     if (input.validity.valid) {
         input.parentElement.classList.remove('input-container--invalido');
+        input.parentElement.querySelector('.input-mensagem-erro').innerHTML = '';
     } else {
         input.parentElement.classList.add('input-container--invalido');
+        input.parentElement.querySelector('.input-mensagem-erro').innerHTML = mostraMensagemDeErro
+            (tipoDeInput, input);
     }
 }
 
@@ -32,6 +35,12 @@ const mensagensDeErro = {
 
 const validadores = {
     dataNascimento:input => validacaoDataNascimento(input)
+}
+
+function mostraMensagemDeErro(tipoDeInput, input) {
+    let mensagem = '';
+
+    return mensagem;
 }
 
 function validacaoDataNascimento(input) {
