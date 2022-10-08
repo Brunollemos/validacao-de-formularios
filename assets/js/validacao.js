@@ -24,7 +24,7 @@ const tiposDeErro = [
 
 const mensagensDeErro = {
     nome: {
-        valueMissing: 'O campo nome não pode estar vazio.'
+        valueMissing: 'O campo de nome não pode estar vazio.'
     },
     email: {
         valueMissing: 'O campo de email não pode estar vazio.',
@@ -46,7 +46,11 @@ const validadores = {
 
 function mostraMensagemDeErro(tipoDeInput, input) {
     let mensagem = '';
-
+    tiposDeErro.forEach(erro => {
+        if (input.validity[erro]) {
+            mensagem = mensagensDeErro[tipoDeInput][erro]
+        }
+    })
     return mensagem;
 }
 
