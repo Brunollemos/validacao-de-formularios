@@ -41,7 +41,8 @@ const mensagensDeErro = {
 }
 
 const validadores = {
-    dataNascimento:input => validacaoDataNascimento(input)
+    dataNascimento:input => validacaoDataNascimento(input),
+    cpf:input => validaCPF(input)
 }
 
 function mostraMensagemDeErro(tipoDeInput, input) {
