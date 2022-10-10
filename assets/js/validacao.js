@@ -37,6 +37,10 @@ const mensagensDeErro = {
     dataNascimento: {
         valueMissing: 'O campo de data de nascimento não pode estar vazio.',
         customError: 'Você deve ser maior que 18 anos para se cadastrar.'
+    },
+    cpf: {
+        valueMissing: 'O campo de data de nascimento não pode estar vazio.',
+        customError: 'O CPF digitado não é valido'
     }
 }
 
