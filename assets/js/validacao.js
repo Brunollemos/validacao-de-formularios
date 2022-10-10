@@ -81,7 +81,7 @@ function validaCPF(input) {
     const cpfFormatado = input.value.replace(/\D/g, '');
     let mensagem = '';
 
-    if (!checaCPFRepetido(cpfFormatado)) {
+    if (!checaCPFRepetido(cpfFormatado) || !checaEstruturaCPF(cpfFormatado)) {
         mensagem = 'O CPF digitado não é valido.';
     }
 
