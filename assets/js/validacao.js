@@ -111,3 +111,24 @@ function checaCPFRepetido(cpf) {
 
     return cpfValido
 }
+
+function checaDigitoVerificador(cpf,multiplicador) {
+    if (multiplicador >=12) {
+        return true;
+    }
+
+    let multiplicadorInicial = multiplicador;
+    let soma = 0;
+    const cpfSemDigitos = cpf.substring(0, multiplicador - 1).split('');
+    const digitoVerificador = cpf.charAt(multiplicador - 1)
+    for(let contador = 0; multiplicadorInicial > 1; multiplicadorInicial--) {
+        soma = soma + cpfSemDigitos[contador] * multiplicadorInicial
+        contador++;
+    }
+
+    if (digitoVerificador == confirmaDigito(soma)) {
+        return checaDigitoVerificador(cpf, multiplicador + 1);
+    }
+
+    return false;
+}
