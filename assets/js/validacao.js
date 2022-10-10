@@ -132,3 +132,7 @@ function checaDigitoVerificador(cpf,multiplicador) {
 
     return false;
 }
+
+function confirmaDigito(soma) {
+    return 11 - (soma % 11);
+}
