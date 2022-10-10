@@ -112,6 +112,12 @@ function checaCPFRepetido(cpf) {
     return cpfValido
 }
 
+function checaEstruturaCPF(cpf) {
+    const multiplicador = 10;
+
+    return checaDigitoVerificador(cpf, multiplicador);
+}
+
 function checaDigitoVerificador(cpf,multiplicador) {
     if (multiplicador >=12) {
         return true;
