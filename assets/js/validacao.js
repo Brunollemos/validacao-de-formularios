@@ -183,3 +183,13 @@ function recuperarCEP(input) {
         )
     }
 }
+
+function preencheCamposComCEP(data) {
+    const logradouro = document.querySelector('[data-tipo"logradouro"]');
+    const cidade = document.querySelector('[data-tipo"cidade"]');
+    const estado = document.querySelector('[data-tipo"estado"]');
+
+    logradouro.value = data.logradouro;
+    cidade.value = data.localidade;
+    estado.value = data.uf;
+}
