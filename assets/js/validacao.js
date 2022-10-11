@@ -1,7 +1,7 @@
 export function valida(input) {
     const tipoDeInput = input.dataset.tipo
 
-    if(validadores[tipoDeInput]) {
+    if (validadores[tipoDeInput]) {
         validadores[tipoDeInput](input)
     }
 
@@ -55,13 +55,16 @@ const mensagensDeErro = {
     },
     estado: {
         valueMissing: 'O campo de estado não pode estar vazio.'
+    },
+    preco: {
+        valueMissing: 'O Campo de preço não pode estar vazio.'
     }
 }
 
 const validadores = {
-    dataNascimento:input => validacaoDataNascimento(input),
-    cpf:input => validaCPF(input),
-    cep:input => recuperarCEP(input)
+    dataNascimento: input => validacaoDataNascimento(input),
+    cpf: input => validaCPF(input),
+    cep: input => recuperarCEP(input)
 }
 
 function mostraMensagemDeErro(tipoDeInput, input) {
@@ -78,14 +81,14 @@ function validacaoDataNascimento(input) {
     const dataRecebida = new Date(input.value);
     let mensagem = '';
 
-    if(!maiorque18(dataRecebida)){
+    if (!maiorque18(dataRecebida)) {
         mensagem = 'Você deve ser maior que 18 anos para se cadastrar.'
     }
-    
+
     input.setCustomValidity(mensagem);
 }
 
-function maiorque18 (data) {
+function maiorque18(data) {
     const dataAtual = new Date();
     const dataMais18 = new Date(data.getUTCFullYear() + 18, data.getUTCMonth(), data.getUTCDate());
 
@@ -119,7 +122,7 @@ function checaCPFRepetido(cpf) {
     let cpfValido = true;
 
     valoresRepetidos.forEach(valor => {
-        if(valor == cpf) {
+        if (valor == cpf) {
             cpfValido = false;
         }
     })
@@ -133,8 +136,8 @@ function checaEstruturaCPF(cpf) {
     return checaDigitoVerificador(cpf, multiplicador);
 }
 
-function checaDigitoVerificador(cpf,multiplicador) {
-    if (multiplicador >=12) {
+function checaDigitoVerificador(cpf, multiplicador) {
+    if (multiplicador >= 12) {
         return true;
     }
 
@@ -142,7 +145,7 @@ function checaDigitoVerificador(cpf,multiplicador) {
     let soma = 0;
     const cpfSemDigitos = cpf.substring(0, multiplicador - 1).split('');
     const digitoVerificador = cpf.charAt(multiplicador - 1)
-    for(let contador = 0; multiplicadorInicial > 1; multiplicadorInicial--) {
+    for (let contador = 0; multiplicadorInicial > 1; multiplicadorInicial--) {
         soma = soma + cpfSemDigitos[contador] * multiplicadorInicial
         contador++;
     }
@@ -170,7 +173,7 @@ function recuperarCEP(input) {
     }
 
     if (!input.validity.patternMismatch && !input.validity.valueMissing) {
-        fetch(url,options).then(
+        fetch(url, options).then(
             response => response.json()
         ).then(
             data => {
