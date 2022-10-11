@@ -60,7 +60,8 @@ const mensagensDeErro = {
 
 const validadores = {
     dataNascimento:input => validacaoDataNascimento(input),
-    cpf:input => validaCPF(input)
+    cpf:input => validaCPF(input),
+    cep:input => recuperarCEP(input)
 }
 
 function mostraMensagemDeErro(tipoDeInput, input) {
